@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MVC Slider Demo (JSON Data with Save/Load)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <form id="dataForm" aria-label="Data Form">
+      <table>
+        <thead>
+          <tr>
+            <td colspan="4" style="text-align: center;">
+              <input
+                type="text"
+                placeholder="Name"
+                size="100"
+                style="border: 0; font-weight: bold; font-size: 13pt; text-align: center;"
+                aria-label="Name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <th>Control</th>
+            <th>Label</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically rendered here -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td class="result" colspan="2">
+              Durchschnitt: <span id="average">50</span> = Note 
+              <input type="text" size="5" aria-label="Final Grade" />
+            </td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      <div style="text-align: center; margin-top: 1em;">
+        <button type="button" id="saveButton">Save Data</button>
+        <button type="button" id="loadButton">Load Saved State</button>
+        <!-- Hidden file input for loading saved state -->
+        <input type="file" id="loadState" accept="application/json" 
+               style="display: none;">
+      </div>
+    </form>
+
+    <div style="text-align: center;">
+      <h4>Feedback:</h4>
+      <textarea cols="90" placeholder="Feedback" aria-label="Feedback"></textarea>
+      <p>
+        <img
+          src="notenberechnung.png"
+          height="300px"
+          alt="Notenberechnung Diagram"
+        />
+      </p>
+    </div>
+
+    <!-- Load our modules -->
+    <script type="module" src="./js/controller.js"></script>
+  </body>
+</html>

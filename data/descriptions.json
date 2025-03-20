@@ -1,0 +1,9 @@
+
+[
+  {"category": "Category 1", "mincomm": "Label A", "maxcomm": "100"},
+  {"category": "Category 1", "mincomm": "10", "maxcomm": "box"},
+  {"category": "Category 1", "mincomm": "Option 1", "maxcomm": "box"},
+  {"category": "Category 2", "mincomm": "Label B", "maxcomm": "90"},
+  {"category": "Category 2", "mincomm": "20", "maxcomm": "box"},
+  {"category": "Category 2", "mincomm": "Option 2", "maxcomm": "box"}
+]
