@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <div style="text-align: left; margin-top: 2em; margin-bottom: 2em;">
+        <button type="button" id="saveButton">Save</button>
+        <button type="button" id="loadButton">Load</button>
+        <input type="file" id="loadState" accept="application/json" 
+               style="display: none;">
+      </div>
+    </form>
     <form id="dataForm" aria-label="Data Form">
       <table>
         <thead>
@@ -23,7 +30,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Rows will be dynamically rendered here -->
         </tbody>
         <tfoot>
           <tr>
@@ -36,15 +42,6 @@
           </tr>
         </tfoot>
       </table>
-      <div style="text-align: center; margin-top: 1em;">
-        <button type="button" id="saveButton">Save Data</button>
-        <button type="button" id="loadButton">Load Saved State</button>
-        <!-- Hidden file input for loading saved state -->
-        <input type="file" id="loadState" accept="application/json" 
-               style="display: none;">
-      </div>
-    </form>
-
     <div style="text-align: center;">
       <h4>Feedback:</h4>
       <textarea cols="90" placeholder="Feedback" aria-label="Feedback"></textarea>
@@ -56,8 +53,6 @@
         />
       </p>
     </div>
-
-    <!-- Load our modules -->
     <script type="module" src="./js/controller.js"></script>
   </body>
 </html>
