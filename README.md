@@ -9,5 +9,5 @@ Simple grid-based grading framework for grading students' work. Original idea an
 3. (Load previous progress with the load button)
 
 ### Save your work
-Since Firefoy does not support the File System Access API, for now the save button just triggers a download of a json file with all the input values. 
+Since Firefox does not support the File System Access API, for now the save button just triggers a download of a json file with all the input values. 
 You can then reload that file with the load button. 
