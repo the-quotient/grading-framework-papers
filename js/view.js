@@ -11,7 +11,7 @@ export class View {
     let boxValue = 10;
 
     rows.forEach((row, i) => {
-      // Render category header if the category has changed
+      // Render category header if the category has changed.
       if (row["category"] !== previousCategory) {
         const headerTr = document.createElement("tr");
         headerTr.innerHTML = `<td colspan="4"><h2>${row["category"]}</h2></td>`;
@@ -19,10 +19,10 @@ export class View {
         previousCategory = row["category"];
       }
 
-      // Check if this row is for a box (checkbox group)
+      // Check if this row is for a box (checkbox group).
       if (row["maxcomm"] === "box") {
         if (!isNaN(row["mincomm"])) {
-          // Start a new box group container
+          // Start a new box group container.
           currentBoxGroupID = "boxgroup" + i;
           boxValue = row["mincomm"];
           const groupTr = document.createElement("tr");
@@ -32,7 +32,7 @@ export class View {
             </td>`;
           this.tableBody.appendChild(groupTr);
         } else {
-          // Append a new checkbox to the current box group
+          // Append a new checkbox to the current box group.
           const fieldset = document.getElementById(currentBoxGroupID);
           const div = document.createElement("div");
           div.classList.add("boxes");
@@ -42,12 +42,13 @@ export class View {
           fieldset.appendChild(div);
         }
       } else {
-        // Render slider row with an extra column for comment
+        // Render slider row with an extra column for comment.
         const tr = document.createElement("tr");
         tr.innerHTML = `<td class="l">${row["mincomm"]}</td>
           <td class="slider">
-            <input id="slider${i}" type="range" min="0" max="100" step="10" value="50" 
-              class="slider-input" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+            <input id="slider${i}" type="range" min="0" max="100" step="10" 
+              value="50" class="slider-input" aria-valuenow="50" 
+              aria-valuemin="0" aria-valuemax="100">
             <br>
             <label for="slider${i}" class="slider-label" id="slider${i}label">50</label>
           </td>
@@ -62,18 +63,19 @@ export class View {
   }
 
   updateSliderLabel(sliderElem, value) {
+    const numericValue = Number(value);
     const label = document.getElementById(sliderElem.id + "label");
     if (label) {
-      label.textContent = value;
-      label.style.left = ((value - 50) * 0.8) + "%";
+      label.textContent = numericValue;
+      label.style.left = ((numericValue - 50) * 0.8) + "%";
     }
-    sliderElem.setAttribute("aria-valuenow", value);
+    sliderElem.setAttribute("aria-valuenow", numericValue);
   }
 
   updateBoxGroup(boxGroupID, delta) {
     const label = document.getElementById(boxGroupID + "label");
     if (label) {
-      const current = parseInt(label.textContent, 10);
+      const current = Number(label.textContent);
       label.textContent = current + delta;
     }
   }

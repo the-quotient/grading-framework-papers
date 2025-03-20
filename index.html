@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div style="text-align: left; margin-top: 2em; margin-bottom: 2em;">
-        <button type="button" id="saveButton">Save</button>
-        <button type="button" id="loadButton">Load</button>
-        <input type="file" id="loadState" accept="application/json" 
-               style="display: none;">
-      </div>
-    </form>
+    <div class="button-container">
+      <button type="button" id="saveButton">Save</button>
+      <button type="button" id="loadButton">Load</button>
+      <input type="file" id="loadState" accept="application/json" 
+             style="display: none;">
+    </div>
     <form id="dataForm" aria-label="Data Form">
       <table>
         <thead>
           <tr>
-            <td colspan="4" style="text-align: center;">
+            <td colspan="4" class="table-header">
               <input
                 type="text"
                 placeholder="Name"
                 size="100"
-                style="border: 0; font-weight: bold; font-size: 13pt; text-align: center;"
+                class="name-input"
                 aria-label="Name"
               />
             </td>
@@ -42,7 +41,8 @@
           </tr>
         </tfoot>
       </table>
-    <div style="text-align: center;">
+    </form>
+    <div class="feedback-container">
       <h4>Feedback:</h4>
       <textarea cols="90" placeholder="Feedback" aria-label="Feedback"></textarea>
       <p>

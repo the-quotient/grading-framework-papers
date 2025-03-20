@@ -13,23 +13,22 @@ class Controller {
   }
 
   init() {
+    // Cache the table element to avoid multiple DOM queries.
+    const table = document.querySelector("table");
+
     // Event delegation for slider inputs.
-    document
-      .querySelector("table")
-      .addEventListener("input", (evt) => {
-        if (evt.target.matches(".slider-input")) {
-          this.handleSliderChange(evt);
-        }
-      });
+    table.addEventListener("input", (evt) => {
+      if (evt.target.matches(".slider-input")) {
+        this.handleSliderChange(evt);
+      }
+    });
 
     // Event delegation for checkbox changes.
-    document
-      .querySelector("table")
-      .addEventListener("change", (evt) => {
-        if (evt.target.matches(".box-checkbox")) {
-          this.handleBoxChange(evt);
-        }
-      });
+    table.addEventListener("change", (evt) => {
+      if (evt.target.matches(".box-checkbox")) {
+        this.handleBoxChange(evt);
+      }
+    });
 
     // Bind save button.
     document
@@ -43,23 +42,19 @@ class Controller {
     loadInput.addEventListener("change", (evt) => this.handleLoadState(evt));
   }
 
-  loadData() {
-    // Load JSON data from the data folder.
-    fetch("./data/descriptions.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok: " + 
-                           response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        this.model.setData(data);
-        this.view.renderTable(this.model.data);
-      })
-      .catch((error) => {
-        this.view.showError("Error loading data: " + error.message);
-      });
+  async loadData() {
+    try {
+      const response = await fetch("./data/descriptions.json");
+      if (!response.ok) {
+        throw new Error("Network response was not ok: " + 
+                         response.statusText);
+      }
+      const data = await response.json();
+      this.model.setData(data);
+      this.view.renderTable(this.model.data);
+    } catch (error) {
+      this.view.showError("Error loading data: " + error.message);
+    }
   }
 
   handleSliderChange(evt) {
@@ -115,7 +110,6 @@ class Controller {
     };
 
     const jsonStr = JSON.stringify(savedData, null, 2);
-
     const blob = new Blob([jsonStr], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -146,10 +140,12 @@ class Controller {
       this.view.showError("Error reading saved state file.");
     };
     reader.readAsText(file);
+    
+    // Reset the file input to allow loading the same file again.
+    evt.target.value = "";
   }
 
   applySavedState(savedState) {
-
     if (savedState.name) {
       const nameInput = document.querySelector('input[aria-label="Name"]');
       if (nameInput) {
