@@ -1,9 +1,132 @@
-
 [
-  {"category": "Category 1", "mincomm": "Label A", "maxcomm": "100"},
-  {"category": "Category 1", "mincomm": "10", "maxcomm": "box"},
-  {"category": "Category 1", "mincomm": "Option 1", "maxcomm": "box"},
-  {"category": "Category 2", "mincomm": "Label B", "maxcomm": "90"},
-  {"category": "Category 2", "mincomm": "20", "maxcomm": "box"},
-  {"category": "Category 2", "mincomm": "Option 2", "maxcomm": "box"}
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "10"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Deckblatt"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Inhaltsvz."
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Einleitung"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Hauptteil"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Schluss"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Seitenzahlen"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "nummerierte Gliederung"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "einheitliche Formatierung"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "angemessener Umfang"
+  },
+  {
+    "category": "Grundlegende Formalia",
+    "maxcomm": "box",
+    "mincomm": "Literatur- und ggf. Abkürzungsverzeichnis"
+  },
+  {
+    "category": "Sprache",
+    "maxcomm": "Keine Rechtschreib-, Grammatik- oder Zeichensetzungsfehler.",
+    "mincomm": "Sehr viele Fehler."
+  },
+  {
+    "category": "Sprache",
+    "maxcomm": "Ausdruck und Stil überzeugen.",
+    "mincomm": "Ausdruck und Stil stark mangelhaft."
+  },
+  {
+    "category": "Grundlagen des wissenschaftlichen Arbeitens",
+    "maxcomm": "Literatur wissenschaftlich sinnvoll und gut ausgewählt. Eigenständige Recherche.",
+    "mincomm": "Ungenügende/ unwissenschaftliche Sekundärliteratur."
+  },
+  {
+    "category": "Grundlagen des wissenschaftlichen Arbeitens",
+    "maxcomm": "Solide, seriöse Quellen und gute Auswahl",
+    "mincomm": "Ungenügendes/ unseriöses Quellenmaterial."
+  },
+  {
+    "category": "Grundlagen des wissenschaftlichen Arbeitens",
+    "maxcomm": "Zitierweise, Fußnoten und Literaturverzeichnis sind durchgehend formal korrekt und vollständig.",
+    "mincomm": "Formal stark mangelhaft, unvollständig."
+  },
+  {
+    "category": "Einleitung und Gliederung",
+    "maxcomm": "Klar fokussierte Fragestellung, realisierbar, aber auch ausreichend komplex.",
+    "mincomm": "Fragestellung ist unklar, zu trivial oder zu breit bzw. unbeantwortbar."
+  },
+  {
+    "category": "Einleitung und Gliederung",
+    "maxcomm": "Reflektierte Vorgehensweise.",
+    "mincomm": "Vorgehen/Methode bleibt unreflektiert."
+  },
+  {
+    "category": "Einleitung und Gliederung",
+    "maxcomm": "Die Gliederung ist übersichtlich und in sich konsistent. Die Arbeit hat einen klaren roten Faden.",
+    "mincomm": "Textteile stehen unverbunden nebeneinander. Kein roter Faden erkennbar."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Sinnvoller und sparsamer Einsatz wörtlicher Zitate. Indirekte Zitate inhaltlich präzise.",
+    "mincomm": "Falsche, ungenau ausgewiesene direkte Zitate. Inhaltlich sehr unpräzise indirekte Zitate."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Eigenständige Reflexion der Literatur im Bezug zur Fragestellung. Komplexität der Darstellung ist der Komplexität der Fragestellung angemessen.",
+    "mincomm": "Bloße Wiedergabe der Literatur oder fehlender Bezug zur Fragestellung."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Quellen und Literatur sind kritisch verknüpft. Kontroverse Aspekte werden diskutiert.",
+    "mincomm": "Unkritischer Umgang mit Quellen und Literatur. Einseitige Parteinahme."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Der Argumentationsgang ist nachvollziehbar, kohärent und gut begründet bzw. belegt.",
+    "mincomm": "Argumentationsgang mangelhaft/ unzureichend begründet bzw. belegt."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Historische und theologische Präzision: Fakten, Zusammenhänge und Begriffe werden präzise und differenziert verwendet bzw. erklärt.",
+    "mincomm": "Begriffe und Zusammenhänge sind falsch. Wichtiges fehlt ganz."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Forschungsstand ist im Blick und produktiv berücksichtigt.",
+    "mincomm": "Forschungsstand ist überhaupt nicht berücksichtigt."
+  },
+  {
+    "category": "Hauptteil und Schluss",
+    "maxcomm": "Gut begründete, eigenständige Positionierung.",
+    "mincomm": "Eigene Position schlecht begründet."
+  }
 ]
