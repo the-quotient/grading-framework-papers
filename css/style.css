@@ -1,14 +1,31 @@
+/* General table styles */
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
+/* Table header styling */
+.table-header {
+  text-align: center;
+}
+
+/* Name input styling */
+.name-input {
+  border: 0;
+  font-weight: bold;
+  font-size: 13pt;
+  text-align: center;
+  width: 100%;
+}
+
+/* Heading styles */
 h2 {
   font-size: 12pt;
   margin: 10px 0 2px 0;
   padding: 0;
 }
 
+/* Cell styles */
 td {
   border-bottom: 1px solid lightgray;
   vertical-align: middle;
@@ -21,6 +38,7 @@ td.boxgroup {
   text-align: center;
 }
 
+/* Box (checkbox group) styles */
 div.boxes {
   display: inline-block;
   margin-right: 0.5em;
@@ -32,6 +50,7 @@ div.boxes:hover {
   background: lightblue;
 }
 
+/* Range input styling */
 input[type="range"] {
   height: 5px;
   padding: 0;
@@ -39,26 +58,32 @@ input[type="range"] {
   cursor: pointer;
 }
 
+/* Fieldset reset */
 fieldset {
   border: none;
   padding: 0;
   margin: 0;
 }
 
+/* Label positioning */
 label {
   position: relative;
 }
 
+/* Result display styling */
 .result {
   text-align: center;
   font-weight: bold;
   background-color: lightgray;
 }
 
+/* Comment input styling */
+.comment-cell input,
 .comment input {
   width: 100%;
 }
 
+/* Visually hidden content */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -70,6 +95,28 @@ label {
   border: 0;
 }
 
+/* Button container styling */
+.button-container {
+  text-align: left;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+/* Button styling */
+.button-container button {
+  margin-right: 10px;
+  padding: 0.5em 1em;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Feedback container styling */
+.feedback-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+/* Responsive styles */
 @media (max-width: 600px) {
   table,
   input,
@@ -79,6 +126,7 @@ label {
   }
 }
 
+/* Print styles */
 @media print {
   body,
   table {
