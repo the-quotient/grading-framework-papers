@@ -48,7 +48,8 @@ class Controller {
     fetch("./data/descriptions.json")
       .then((response) => {
         if (!response.ok) {
-          throw new Error("Network response was not ok: " + response.statusText);
+          throw new Error("Network response was not ok: " + 
+                           response.statusText);
         }
         return response.json();
       })
@@ -80,8 +81,8 @@ class Controller {
     this.view.updateAverage();
   }
 
-  handleSave() {
-    // Gather current slider data.
+  async handleSave() {
+    // Gather current slider data including comments.
     const sliderData = [];
     document.querySelectorAll(".slider-input").forEach((slider) => {
       const tr = slider.closest("tr");
@@ -102,18 +103,27 @@ class Controller {
       });
     });
 
+    // Retrieve the name from the name input.
+    const nameInput = document.querySelector('input[aria-label="Name"]');
+    const nameValue = nameInput ? nameInput.value.trim() : "savedData";
+
+    // Build the saved data object.
     const savedData = {
+      name: nameValue,
       sliders: sliderData,
       checkboxes: checkboxData
     };
 
     const jsonStr = JSON.stringify(savedData, null, 2);
+
     const blob = new Blob([jsonStr], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "savedData.json";
+    a.download = nameValue + ".json";
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
   }
 
@@ -139,6 +149,14 @@ class Controller {
   }
 
   applySavedState(savedState) {
+
+    if (savedState.name) {
+      const nameInput = document.querySelector('input[aria-label="Name"]');
+      if (nameInput) {
+        nameInput.value = savedState.name;
+      }
+    }
+
     // Apply slider states.
     if (savedState.sliders) {
       savedState.sliders.forEach((sliderData) => {
