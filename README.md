@@ -1,6 +1,6 @@
 # Grading Framework
 
-Simple grid-based grading framework for grading students' work. Original idea and desing by [gedoensmanagement](https://github.com/gedoensmanagement).
+Simple grid-based grading framework for grading students' work. Original idea and design by [gedoensmanagement](https://github.com/gedoensmanagement).
 
 ## How to use it 
 ### Start a session
