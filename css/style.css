@@ -136,6 +136,9 @@ label {
   h2 {
     font-size: 9pt;
   }
+  button {
+    display: none;
+  }
   @page {
     margin: 1cm 2cm;
   }
