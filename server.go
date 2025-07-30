@@ -77,7 +77,7 @@ func main() {
 	mux.Handle("/", fs)
 
 	srv := &http.Server{
-		Addr:         ":8765",
+		Addr:         ":8000",
 		Handler:      mux,
 		ReadTimeout:  5 * time.Second,
 		WriteTimeout: 10 * time.Second,

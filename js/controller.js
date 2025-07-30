@@ -10,7 +10,6 @@ export class Controller {
   }
 
   async init() {
-    // 1) load descriptions that drive sliders/boxes
     try {
       const resp = await fetch("data/descriptions.json");
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
@@ -21,30 +20,25 @@ export class Controller {
       return;
     }
 
-    // 2) render table and compute average
     this.view.renderTable(this.model.data);
     this.resetForm();
     this.view.updateAverage();
 
-    // save button
     document.getElementById("saveButton").addEventListener(
       "click",
       () => this.handleSave()
     );
 
-    // load button opens file input
     document.getElementById("loadButton").addEventListener(
       "click",
       () => document.getElementById("loadState").click()
     );
 
-    // file input change triggers load
     document.getElementById("loadState").addEventListener(
       "change",
       (evt) => this.handleLoad(evt)
     );
 
-    // slider input updates label and average
     document.querySelector("table tbody").addEventListener(
       "input",
       (evt) => {
@@ -55,7 +49,6 @@ export class Controller {
       }
     );
 
-    // checkbox change updates box groups and average
     document.querySelector("table tbody").addEventListener(
       "change",
       (evt) => {
@@ -72,23 +65,15 @@ export class Controller {
     );
   }
 
-  // clear name, feedback, output, and reset sliders/boxes before load or on init
   resetForm() {
-    // clear name
     const nameEl = document.querySelector(".name-input");
     if (nameEl) nameEl.value = "";
-
-    // clear feedback
     const fb = document.querySelector(
       ".feedback-container textarea"
     );
     if (fb) fb.value = "";
-
-    // clear save output
     const out = document.getElementById("output");
     if (out) out.value = "";
-
-    // clear file input
     const fileIn = document.getElementById("loadState");
     if (fileIn) fileIn.value = "";
   }
@@ -97,7 +82,6 @@ export class Controller {
     const file = evt.target.files[0];
     if (!file) return;
 
-    // reset UI before applying new state
     this.view.renderTable(this.model.data);
     this.resetForm();
 
@@ -105,11 +89,9 @@ export class Controller {
     reader.onload = (e) => {
       try {
         const state = JSON.parse(e.target.result);
-        // restore name
         const nameEl = document.querySelector(".name-input");
         if (nameEl) nameEl.value = state.name || "";
 
-        // restore sliders and comments
         (state.sliders || []).forEach((s) => {
           const input = document.getElementById(s.id);
           if (!input) return;
@@ -122,7 +104,6 @@ export class Controller {
           if (commentEl) commentEl.value = s.comment || "";
         });
 
-        // restore checkboxes
         (state.boxes || []).forEach((b) => {
           const cb = document.getElementById(b.id);
           if (!cb) return;
@@ -137,18 +118,16 @@ export class Controller {
           }
         });
 
-        // restore feedback
         const fb = document.querySelector(
           ".feedback-container textarea"
         );
         if (fb) fb.value = state.feedback || "";
 
-        // recompute average
         this.view.updateAverage();
       } catch (err) {
         this.view.showError("Load error: " + err.message);
       } finally {
-        evt.target.value = ""; // reset file input
+        evt.target.value = "";
       }
     };
     reader.readAsText(file);
